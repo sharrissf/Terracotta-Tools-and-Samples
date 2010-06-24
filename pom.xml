@@ -23,12 +23,32 @@
 				<version>1.6.0-SNAPSHOT</version>
 
 				<configuration>
+					<!--Uncomment one of these to run them with tc:run  -->
+
 
 					<processes>
-						<process nodeName="queueNode" count="2" jvmargs="-Xmx120m"
+						<process nodeName="QueueNode" count="2" jvmargs="-Xmx120m"
 							className="PlayingWithToolkitQueue" />
 
 					</processes>
+
+					<!--
+						<processes> <process nodeName="MapOfLocksNode" count="2"
+						jvmargs="-Xmx120m" className="PlayingWithToolkitMapOfLocks" />
+						</processes>
+					-->
+					<!--
+						<processes> <process nodeName="ToolkitBarrierNode" count="2"
+						jvmargs="-Xmx120m" className="PlayingWithToolkitBarrier" />
+
+						</processes>
+					-->
+					<!--
+						<processes> <process nodeName="ClusterInfo" count="4"
+						jvmargs="-Xmx60m" className="PlayingWithToolkitClusterInfo" />
+
+						</processes>
+					-->
 				</configuration>
 			</plugin>
 		</plugins>

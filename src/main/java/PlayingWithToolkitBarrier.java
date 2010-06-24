@@ -12,8 +12,9 @@ import org.terracotta.coordination.Barrier;
 public class PlayingWithToolkitBarrier {
 
 	public static void main(String[] args) {
-		final String barrierName = args[0];
-		final int numberOfParties = Integer.parseInt(args[1]);
+		final String barrierName = args.length == 0 ? "barrierName" : args[0];
+		final int numberOfParties = Integer.parseInt(args.length == 0 ? "2"
+				: args[0]);
 
 		// Start the Terracotta client
 		ClusteringToolkit clustering = new TerracottaClient("localhost:9510")
