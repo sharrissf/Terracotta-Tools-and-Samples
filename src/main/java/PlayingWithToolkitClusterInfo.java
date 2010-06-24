@@ -7,6 +7,15 @@ import org.terracotta.cluster.ClusterInfo;
 import org.terracotta.cluster.ClusterListener;
 import org.terracotta.cluster.ClusterTopology;
 
+/**
+ * Prints out the 4 main cluster events that occur as they happen. Start and
+ * stop many nodes and watch the printouts as nodes join and leave. You can also
+ * see what happens when you start and stop servers (put the server in permanent
+ * store mode to be able to restart it) and see operations enable and disable.
+ * 
+ * @author steve
+ * 
+ */
 public class PlayingWithToolkitClusterInfo {
 
 	public static void main(String[] args) throws Exception {
@@ -25,12 +34,14 @@ public class PlayingWithToolkitClusterInfo {
 				System.out.println("Node Left: " + event.getNode().getId());
 			}
 
-			public void operationsDisabled(ClusterEvent arg0) {
-
+			public void operationsDisabled(ClusterEvent event) {
+				System.out.println("Operations Disabled: "
+						+ event.getNode().getId());
 			}
 
-			public void operationsEnabled(ClusterEvent arg0) {
-
+			public void operationsEnabled(ClusterEvent event) {
+				System.out.println("Operations Enabled: "
+						+ event.getNode().getId());
 			}
 
 		});

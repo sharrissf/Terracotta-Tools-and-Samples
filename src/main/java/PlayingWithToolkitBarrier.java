@@ -2,6 +2,13 @@ import org.terracotta.api.ClusteringToolkit;
 import org.terracotta.api.TerracottaClient;
 import org.terracotta.coordination.Barrier;
 
+/**
+ * 
+ * @author steve Start up n names and they will wait until all n nodes hit the
+ *         barrier and then continue
+ * 
+ *         Usage PlayingWithToolkitBarrier <nameOfBarrier> <numberOfNodes>
+ */
 public class PlayingWithToolkitBarrier {
 
 	public static void main(String[] args) {

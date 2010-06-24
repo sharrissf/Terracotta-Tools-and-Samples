@@ -16,6 +16,9 @@ import org.terracotta.coordination.Barrier;
  * 
  * @author steve
  * 
+ *         Usage: start two of these and watch the putter (chosen at random) put
+ *         and the getter get off the queue
+ * 
  */
 public class PlayingWithToolkitQueue {
 	public static void main(String[] args) throws Exception {
@@ -24,10 +27,11 @@ public class PlayingWithToolkitQueue {
 
 		Barrier barrier = clustering.getBarrier("queueBarrier", 2);
 
-		BlockingQueue<String> expressQueue = clustering
+		BlockingQueue<byte[]> expressQueue = clustering
 				.getBlockingQueue("myQueue");
 
-		ClusteredMap<String, BlockingQueue> map = clustering.getMap("myMap");
+		ClusteredMap<String, BlockingQueue<byte[]>> map = clustering
+				.getMap("myMap");
 		boolean putter = map.put("myQueue", expressQueue) == null;
 		System.out.println("waiting");
 		barrier.await();
