@@ -32,9 +32,9 @@ public class PlayingWithToolkitQueue {
 
 		ClusteredMap<String, BlockingQueue<byte[]>> map = clustering
 				.getMap("myMap");
-		boolean putter = map.put("myQueue", expressQueue) == null;
+		map.put("myQueue", expressQueue);
 		System.out.println("waiting");
-		barrier.await();
+		boolean putter = 0 == barrier.await();
 
 		BlockingQueue<byte[]> bq = map.get("myQueue");
 
