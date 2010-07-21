@@ -1,7 +1,12 @@
 import org.terracotta.api.ClusteringToolkit;
 import org.terracotta.api.TerracottaClient;
 import org.terracotta.util.ClusteredAtomicLong;
-
+/**
+ * This is a very basic sample that increments an atomic long. Run a couple hundred of these
+ * at a time and see that no number is duplicated
+ * @author steve
+ *
+ */
 public class PlayingWithToolkitClusterCounter {
 	public static void main(String[] args) {
 
