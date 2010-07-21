@@ -17,11 +17,11 @@ public class PlayingWithToolkitBarrier {
 				: args[0]);
 
 		// Start the Terracotta client
-		ClusteringToolkit clustering = new TerracottaClient("localhost:9510")
+		ClusteringToolkit toolkit = new TerracottaClient("localhost:9510")
 				.getToolkit();
 
 		// Get an instance of a barrier by name
-		Barrier barrier = clustering.getBarrier(barrierName, numberOfParties);
+		Barrier barrier = toolkit.getBarrier(barrierName, numberOfParties);
 		try {
 			System.out.println("Waiting ...");
 			int index = barrier.await();
